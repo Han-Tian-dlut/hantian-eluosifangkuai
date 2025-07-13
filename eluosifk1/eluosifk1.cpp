@@ -264,6 +264,11 @@ void handleInput() {
         if (gameOver) {
             if (msg.message == WM_KEYDOWN && (msg.vkcode == 'R' || msg.vkcode == 'r')) {
                 initGame();
+                continue;
+            }
+            if (msg.message == WM_KEYDOWN)
+            {
+                exit(0);
             }
             continue;
         }
@@ -405,7 +410,7 @@ void drawGameToBuffer(IMAGE* pBuffer) {
 
     // 绘制下一个方块预览区域
     int nextX = BOARD_WIDTH * BLOCK_SIZE + 20;
-    int nextY = 130;
+    int nextY = 150;
 
     setlinecolor(WHITE);
     rectangle(nextX, nextY, nextX + 4 * BLOCK_SIZE, nextY + 4 * BLOCK_SIZE);
